@@ -1,0 +1,30 @@
+Guide Questions
+
+1. What are the main differences between XMLHttpRequest and Fetch API?
+
+	- XMLHttpRequest (XHR): This is the older, callback-based API. It requires extensive configuration and uses an event-driven model for managing the request lifecycle.
+
+	- Fetch API: This is a modern, Promise-based API. It provides a cleaner and more direct way to make requests, built natively into modern JavaScript and browsers.
+
+
+2. Why is the Fetch API considered more modern and readable?
+
+	- Promises: Fetch uses Promises, which allows for chaining asynchronous operations with `.then()`. This structure avoids the "callback hell" often associated with older methods.
+
+	- Clarity: The code structure directly reflects the request flow: `fetch(...)` $\rightarrow$ `.then(handle response)` $\rightarrow$ `.then(handle data)` $\rightarrow$ `.catch(handle error)`. This declarative style is significantly more readable than managing `readyState` in XHR.
+
+
+3. What is the purpose of the `.then()` and `.catch()` methods in Fetch?
+
+	- `.then()`: This method handles the successful resolution of a Promise.The first `.then()` typically receives the Response object and is used to convert the response stream (e.g., `response.json()`).
+
+	- Subsequent `.then()` blocks receive the final data payload and update the UI.
+ 
+	- `.catch()`: This method handles the rejection of a Promise.It is used for error handling. It captures network failures  or any errors that were explicitly thrown in a preceding `.then()` block, such as when checking for a non-OK HTTP status.
+
+
+4.  What happens when you send a POST request to the placeholder API (`https://jsonplaceholder.typicode.com/posts`)?
+
+	- Simulation: The `jsonplaceholder` API is a fake API used for testing. It simulates the creation of a new resource without actually storing the data.
+
+	- Response: The server immediately returns a confirmation response. This response typically echoes the data sent in the request's body and, most importantly, includes a new, unique ID for the simulated resource.
